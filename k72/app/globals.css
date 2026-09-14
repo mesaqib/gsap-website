@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* *{
+  outline: 1px solid green;
+} */
+
+@font-face {
+  font-family: heading1;
+  src: url('/font/Lausanne-500.woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: heading2;
+  src: url('/font/Lausanne-300.woff2');
+  font-weight: 300;
+   
+}
+ 
+
+body {
+  
+  font-family: "heading2";
+}
+
+.navHover {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.navMove {
+  animation: navMove 8s linear infinite;
+}
+
+.navLink:hover .navHover {
+  opacity: 1;
+}
+
+@keyframes navMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
