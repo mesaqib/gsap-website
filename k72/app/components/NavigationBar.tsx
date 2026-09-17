@@ -2,10 +2,11 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 
-const NavigationBar = () => {
+const NavigationBar = ({onMenuClick}: {onMenuClick: () => void}) => {
   const navHoverRef = useRef<HTMLDivElement>(null);
 
-  return (
+
+  return ( 
     <>
       <div className="fixed top-0 z-7 flex justify-between w-full">
         <div className="p-2 w-34">
@@ -25,6 +26,7 @@ const NavigationBar = () => {
         </div>
 
         <div
+        onClick={onMenuClick}
           className="relative cursor-pointer h-[8vh] w-[17vw]  bg-black"
           onMouseEnter={() => {
             navHoverRef.current?.style.setProperty("height", "100%");

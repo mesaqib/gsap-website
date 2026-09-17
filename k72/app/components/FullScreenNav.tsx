@@ -1,13 +1,17 @@
 "use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
-const FullScreenNav = () => {
+import Link from "next/link";
+import {useRouter } from "next/navigation";
+
+const FullScreenNav = ({isNavOpen, onClose}: any) => {
   const router = useRouter();
+ 
 
   return (
     <>
-      <div className="fixed h-screen w-screen bg-black text-white z-20 t-0">
+ 
+
+      <div className={`${isNavOpen ? "block": "hidden"} fixed h-screen w-screen bg-black text-white z-10 t-0`}>
         <div className="flex justify-between">
           <div className="p-2 w-34">
             <Link href="/">
@@ -25,7 +29,7 @@ const FullScreenNav = () => {
             </Link>
           </div>
 
-          <div className="relative cursor-pointer h-[10vh] w-[10vw]">
+          <div className="relative cursor-pointer h-[10vh] w-[10vw]" onClick={onClose}>
             <div>
               <span className="absolute top-8 h-[.3vh] rounded-full right-10 w-16 bg-white transform origin-center -rotate-45"></span>
               <span className="absolute top-8 h-[.3vh] rounded-full right-10 w-16 bg-white transform rotate-45 origin-center"></span>
@@ -179,6 +183,7 @@ const FullScreenNav = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

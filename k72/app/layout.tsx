@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StairAnimation from "./components/StairAnimation";
-import NavigationBar from "./components/NavigationBar";
-import FullScreenNav from "./components/FullScreenNav";
+import NavigationController from "./components/NavigationController";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body>
-        <NavigationBar/>
-        <FullScreenNav/>
-        <StairAnimation>
-        {children}
-        </StairAnimation>
-        </body>
+        <NavigationController />
+        <StairAnimation>{children}</StairAnimation>
+      </body>
     </html>
   );
 }
